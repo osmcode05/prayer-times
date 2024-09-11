@@ -31,7 +31,7 @@ const DateInfo = ({ city, setCity, todayDate, timezone}: DateInfoProps) => {
   const [time, setTime] = useState(new Date());
   setInterval(() => setTime(new Date()), 1000);
   const options: Intl.DateTimeFormatOptions = { timeZone: timezone, hour: '2-digit', minute: '2-digit', second: '2-digit' };
-  const clock = time.toLocaleTimeString("en-US", options);
+  const clock = time.toLocaleTimeString("en-GB", options);
   
   return (
     <div className="date_info text-light" style={{ backgroundImage:`linear-gradient(#00000080, #00000080),url(${city.imgUrl})`}}>
