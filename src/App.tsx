@@ -45,7 +45,7 @@ const App = () => {
   }, [city]);
 
   return (
-    <section className="bg-light d-flex flex-column">
+    <section className="bg-danger d-flex flex-column">
       <DateInfo city={city} setCity={setCity} todayDate={todayDate} timezone={timezone} />
       <PrayerTimes prayerTimes={prayerTimes} msg={msg} />
     </section>
