@@ -1,0 +1,167 @@
+{
+  "cardBg": {
+    "Fajr": "https://cdn.pixabay.com/photo/2019/11/27/21/06/jerusalem-4657867_1280.jpg",
+    "Sunrise": "https://cdn.pixabay.com/photo/2017/09/25/08/47/sunrise-2784380_1280.jpg",
+    "Dhuhr": "https://cdn.pixabay.com/photo/2021/01/30/12/31/sultan-qaboos-grand-mosque-5963726_1280.jpg",
+    "Asr": "https://cdn.pixabay.com/photo/2018/01/26/10/42/oman-3108358_1280.jpg",
+    "Maghrib": "https://cdn.pixabay.com/photo/2022/10/01/09/08/sky-7491142_1280.jpg",
+    "Isha": "https://cdn.pixabay.com/photo/2019/02/21/07/09/sheikh-zayed-grand-mosque-4010762_1280.jpg"
+  },
+  "cities": [
+    {
+      "EnCityName": "Agadir",
+      "ArCityName": "أكادير",
+      "EnCountryName": "Morocco",
+      "ArCountryName": "المغرب",
+      "imgUrl": "https://cdn.pixabay.com/photo/2020/02/09/19/42/agadir-4834349_1280.jpg"
+    },
+    {
+      "EnCityName": "Algiers",
+      "ArCityName": "الجزائر العاصمة",
+      "EnCountryName": "Algeria",
+      "ArCountryName": "الجزائر",
+      "imgUrl": "https://cdn.pixabay.com/photo/2017/06/20/22/13/ain-taya-2425120_1280.jpg"
+    },
+    {
+      "EnCityName": "Tunis",
+      "ArCityName": "تونس العاصمة",
+      "EnCountryName": "Tunisia",
+      "ArCountryName": "تونس",
+      "imgUrl": "https://cdn.pixabay.com/photo/2014/01/24/20/29/mosque-251183_1280.jpg"
+    },
+    {
+      "EnCityName": "Cairo",
+      "ArCityName": "القاهرة",
+      "EnCountryName": "Egypt",
+      "ArCountryName": "مصر",
+      "imgUrl": "https://cdn.pixabay.com/photo/2018/03/24/15/07/pyramid-3256883_1280.jpg"
+    },
+    {
+      "EnCityName": "Al-Qods",
+      "ArCityName": "القدس",
+      "EnCountryName": "Palestine",
+      "ArCountryName": "فلسطين",
+      "imgUrl": "https://cdn.pixabay.com/photo/2019/11/27/21/06/jerusalem-4657867_1280.jpg"
+    },
+    {
+      "EnCityName": "Makkah",
+      "ArCityName": "مكة المكرمة",
+      "EnCountryName": "KSA",
+      "ArCountryName": "السعودية",
+      "imgUrl": "https://cdn.pixabay.com/photo/2019/09/18/23/29/the-pilgrims-guide-4487889_1280.jpg"
+    },
+    {
+      "EnCityName": "Istanbul",
+      "ArCityName": "اسطنبول",
+      "EnCountryName": "Turkey",
+      "ArCountryName": "تركيا",
+      "imgUrl": "https://cdn.pixabay.com/photo/2019/03/08/19/52/galata-4043037_1280.jpg"
+    },
+    {
+      "EnCityName": "Moscow",
+      "ArCityName": "موسكو",
+      "EnCountryName": "Russia",
+      "ArCountryName": "روسيا",
+      "imgUrl": "https://cdn.pixabay.com/photo/2016/07/30/08/13/moscow-1556561_1280.jpg"
+    },
+    {
+      "EnCityName": "Tokyo",
+      "ArCityName": "طوكيو",
+      "EnCountryName": "Japan",
+      "ArCountryName": "اليابان",
+      "imgUrl": "https://cdn.pixabay.com/photo/2019/06/08/11/30/people-4259948_1280.jpg"
+    },
+    {
+      "EnCityName": "Jakarta",
+      "ArCityName": "جاكرتا",
+      "EnCountryName": "Indonesia",
+      "ArCountryName": "أندونيسيا",
+      "imgUrl": "https://cdn.pixabay.com/photo/2019/11/29/04/14/jakarta-4660555_1280.jpg"
+    },
+    {
+      "EnCityName": "Canberra",
+      "ArCityName": "كانبيرا",
+      "EnCountryName": "Australia",
+      "ArCountryName": "أستراليا",
+      "imgUrl": "https://cdn.pixabay.com/photo/2019/10/19/03/05/australia-canberra-4560441_1280.jpg"
+    },
+    {
+      "EnCityName": "New York",
+      "ArCityName": "نيويورك",
+      "EnCountryName": "USA",
+      "ArCountryName": "أمريكا",
+      "imgUrl": "https://cdn.pixabay.com/photo/2016/11/29/05/34/new-york-1867569_1280.jpg"
+    },
+    {
+      "EnCityName": "Nuuk",
+      "ArCityName": "نوك",
+      "EnCountryName": "Greenland",
+      "ArCountryName": "جرينلاند",
+      "imgUrl": "https://cdn.pixabay.com/photo/2020/03/27/10/49/nuuk-4973266_1280.jpg"
+    },
+    {
+      "EnCityName": "Ottawa",
+      "ArCityName": "أوتاوا",
+      "EnCountryName": "Canada",
+      "ArCountryName": "كندا",
+      "imgUrl": "https://cdn.pixabay.com/photo/2018/06/22/13/29/ottawa-3490766_1280.jpg"
+    },
+    {
+      "EnCityName": "London",
+      "ArCityName": "لندن",
+      "EnCountryName": "UK",
+      "ArCountryName": "المملكة المتحدة",
+      "imgUrl": "https://cdn.pixabay.com/photo/2023/05/02/18/13/london-7965770_1280.jpg"
+    },
+    {
+      "EnCityName": "Barcelona",
+      "ArCityName": "برشلونة",
+      "EnCountryName": "Spain",
+      "ArCountryName": "إسبانيا",
+      "imgUrl": "https://cdn.pixabay.com/photo/2018/03/14/23/00/barcelona-3226639_1280.jpg"
+    },
+    {
+      "EnCityName": "Rome",
+      "ArCityName": "روما",
+      "EnCountryName": "Italy",
+      "ArCountryName": "إيطاليا",
+      "imgUrl": "https://cdn.pixabay.com/photo/2018/07/20/14/02/rome-3550739_1280.jpg"
+    }
+  ]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

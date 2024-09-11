@@ -2,55 +2,64 @@ import { useEffect, useState } from "react";
 import DateInfo from "./Components/DateInfo";
 import PrayerTimes from "./Components/PrayerTimes";
 
-const App = () => {
+interface apiDataTypes {
+  timings: any;
+  EnTodayDate: string | null;
+  ArTodayDate: string | null;
+  Timezone: string;
+}
 
+const App = () => {
   const [city, setCity] = useState<Record<string, string>>({
-    cityName: "Agadir",
-    country: "Morocco",
-    imgUrl:"https://cdn.pixabay.com/photo/2020/02/09/19/42/agadir-4834349_1280.jpg",
+    EnCityName: "Agadir",
+    ArCityName: "أكادير",
+    EnCountryName: "Morocco",
+    ArCountryName: "المغرب",
+    imgUrl:
+      "https://cdn.pixabay.com/photo/2020/02/09/19/42/agadir-4834349_1280.jpg",
   });
-  
-  const [prayerTimes, setPrayerTimes] = useState<Record<string, string> | null>(null);
-  const [timezone, setTimezone] = useState<string>("Africa/Casablanca");
-  const [todayDate, setTodayDate] = useState<string>("");
+
+  const [apiData, setApiData] = useState<apiDataTypes>({
+    timings: "",
+    EnTodayDate: "",
+    ArTodayDate: "",
+    Timezone: "Africa/Casablanca",
+  });
+
   const [msg, setMsg] = useState<string>("Loading...");
-  
+
   const getCityPrayerTimes = async (city: Record<string, string>) => {
     try {
-      const response = await fetch(`https://api.aladhan.com/v1/timingsByCity?city=${city.cityName}&country=${city.country}`);
-      if (!response.ok) {
-        setMsg(`Error ${response.status}: Failed to get data from API`);
-        return { timings: null, todayDate: null, Timezone: null };
-      }
+      const response = await fetch(`https://api.aladhan.com/v1/timingsByCity?city=${city.EnCityName}&country=${city.EnCountryName}`);
+      if (!response.ok) throw new Error(`(${response.status}) Failed to get data from API`);
       const data = await response.json();
-
-      const { Fajr, Sunrise, Dhuhr, Asr, Maghrib, Isha } = data.data.timings; // get prayer timings
-      const todayDate = `${data.data.date.gregorian.weekday.en}, ${data.data.date.readable}`; // get the date of the day in city select
-      const Timezone = data.data.meta.timezone; // get the timezone of the city selected
-
-      return { timings: { Fajr, Sunrise, Dhuhr, Asr, Maghrib, Isha }, todayDate, Timezone };
+      const { Fajr, Sunrise, Dhuhr, Asr, Maghrib, Isha } = data.data.timings;
+      const DataFromApi = {
+        timings: { Fajr, Sunrise, Dhuhr, Asr, Maghrib, Isha },
+        EnTodayDate: `${data.data.date.gregorian.weekday.en}, ${data.data.date.readable}`,
+        ArTodayDate: `${data.data.date.hijri.year} ${data.data.date.hijri.weekday.ar} ${data.data.date.hijri.day} ${data.data.date.hijri.month.ar}`,
+        Timezone: data.data.meta.timezone,
+      };
+      return DataFromApi;
     } catch (error) {
       setMsg(`${error}`);
-      return { timings: null, todayDate: null, Timezone: null };
     }
+    return null;
   };
 
   useEffect(() => {
     (async () => {
-      const { timings, todayDate, Timezone } = await getCityPrayerTimes(city);
-      timings && setPrayerTimes(timings);
-      todayDate && setTodayDate(todayDate);
-      Timezone && setTimezone(Timezone);
+      const DataFromApi = await getCityPrayerTimes(city);
+      DataFromApi && setApiData(DataFromApi);
     })();
   }, [city]);
 
   return (
     <section className="bg-light d-flex flex-column">
-      <DateInfo city={city} setCity={setCity} todayDate={todayDate} timezone={timezone} />
-      <PrayerTimes prayerTimes={prayerTimes} msg={msg} />
+      <DateInfo city={city} setCity={setCity} apiData={apiData} />
+      <PrayerTimes timings={apiData.timings} msg={msg} />
     </section>
   );
-
 };
 
 export default App;
