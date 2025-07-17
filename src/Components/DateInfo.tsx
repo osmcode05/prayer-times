@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import jsonData from "../data/db.json";
 
 interface DateInfoProps {
@@ -21,7 +21,10 @@ const DateInfo = ({ city, setCity, apiData }: DateInfoProps) => {
 
   // show the moment time
   const [time, setTime] = useState(new Date());
-  setInterval(() => setTime(new Date()), 1000);
+  useEffect(() => {
+    const interval = setInterval(() => setTime(new Date()), 1000);
+    return () => clearInterval(interval);
+  }, []);
   const options: Intl.DateTimeFormatOptions = {
     timeZone: apiData.Timezone,
     hour: "2-digit",
