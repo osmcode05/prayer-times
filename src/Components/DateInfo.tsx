@@ -1,47 +1,50 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { AppContext } from "../App";
 import jsonData from "../data/db.json";
 
-interface DateInfoProps {
-  city: Record<string, string>;
-  setCity: (city: Record<string, string>) => void;
-  apiData: Record<string, any>;
-}
+type City = {
+  EnCityName: string;
+  ArCityName: string;
+  EnCountryName: string;
+  ArCountryName: string;
+  imgUrl: string;
+};
 
-const DateInfo = ({ city, setCity, apiData }: DateInfoProps) => {
-  // get All cities info from json file
-  const Cities: Record<string, string>[] = jsonData.cities;
-
-  // Handel select a city
-  const handleSelect = (cityNameSelected: string) => {
-    const selectedCity = Cities.find(
-      (city) => city.EnCityName === cityNameSelected
-    );
-    selectedCity && setCity(selectedCity);
-  };
-
-  // show the moment time
+const DateInfo = () => {
+  const { city, setCity, apiData }: any = useContext(AppContext);
   const [time, setTime] = useState(new Date());
+  const cities: City[] = jsonData.cities;
+
   useEffect(() => {
     const interval = setInterval(() => setTime(new Date()), 1000);
     return () => clearInterval(interval);
   }, []);
-  const options: Intl.DateTimeFormatOptions = {
+
+  const handleSelect = (cityName: string) => {
+    const selectedCity = cities.find((c) => c.EnCityName === cityName);
+    if (selectedCity) {
+      setCity(selectedCity);
+    }
+  };
+
+  const clock = time.toLocaleTimeString("en-GB", {
     timeZone: apiData.Timezone,
     hour: "2-digit",
     minute: "2-digit",
     second: "2-digit",
-  };
-  const clock = time.toLocaleTimeString("en-GB", options);
+  });
 
   return (
     <div
       className="date_info text-light"
       style={{
-        backgroundImage: `linear-gradient(#00000080, #00000080),url(${city.imgUrl})`,
+        backgroundImage: `linear-gradient(#00000080, #00000080), url(${city.imgUrl})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
       }}
     >
       <div className="container h-100 position-relative d-flex">
-        <div className="mt-md-auto w-100 d-flex">
+        <div className="mt-md-auto w-100 d-flex flex-wrap">
           <ul className="list-unstyled me-auto">
             <li>
               <i className="text-uppercase fw-bold">{city.EnCityName}</i>,{" "}
@@ -49,7 +52,6 @@ const DateInfo = ({ city, setCity, apiData }: DateInfoProps) => {
             </li>
             <li>{apiData.EnTodayDate}</li>
           </ul>
-
           <ul className="list-unstyled text-end">
             <li>
               <i className="text-uppercase fw-bold">{city.ArCityName}</i>,{" "}
@@ -66,8 +68,10 @@ const DateInfo = ({ city, setCity, apiData }: DateInfoProps) => {
           value={city.EnCityName}
           onChange={(e) => handleSelect(e.target.value)}
         >
-          {Cities.map((city, index) => (
-            <option key={index}>{city.EnCityName}</option>
+          {cities.map((c, i) => (
+            <option key={i} value={c.EnCityName}>
+              {c.EnCityName}
+            </option>
           ))}
         </select>
       </div>
