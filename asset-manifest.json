@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/prayer-times/static/css/main.b25fcef0.css",
-    "main.js": "/prayer-times/static/js/main.c3d271e6.js",
+    "main.js": "/prayer-times/static/js/main.da9e2044.js",
     "static/js/453.59b13c1c.chunk.js": "/prayer-times/static/js/453.59b13c1c.chunk.js",
     "index.html": "/prayer-times/index.html",
     "main.b25fcef0.css.map": "/prayer-times/static/css/main.b25fcef0.css.map",
-    "main.c3d271e6.js.map": "/prayer-times/static/js/main.c3d271e6.js.map",
+    "main.da9e2044.js.map": "/prayer-times/static/js/main.da9e2044.js.map",
     "453.59b13c1c.chunk.js.map": "/prayer-times/static/js/453.59b13c1c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b25fcef0.css",
-    "static/js/main.c3d271e6.js"
+    "static/js/main.da9e2044.js"
   ]
 }
